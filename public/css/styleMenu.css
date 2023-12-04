@@ -1,0 +1,53 @@
+.body-vendedores{
+    background-color: rgb(230, 230, 230);
+  }
+  
+  .menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: #12477c;
+    border-radius: 10px;
+  }
+  
+  .menu button {
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+  }
+  
+  
+  .icono {
+    width: 25px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Esto mantiene la relación de aspecto de la imagen */
+  }
+  
+  .menu button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Estilos básicos del botón */
+.custom-button {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 15px 45px;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Color de texto */
+  text-decoration: none;
+  border: 2px solid #333; /* Borde */
+  border-radius: 10px; /* Esquinas redondeadas */
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el cursor sobre el botón */
+.custom-button:hover {
+  background-color: #c0c0c0; /* Oscurece ligeramente el fondo */
+}

@@ -1,0 +1,119 @@
+.gradient-custom {
+    background: linear-gradient(to bottom, #73bdee, #17425f); /* Gradiente de azul claro a oscuro */
+    }
+
+.product-body{
+    background-color: rgb(230, 230, 230);
+}
+
+.content-table{
+    margin-top: 4%;
+    width: 100%;
+}
+
+.table-product{
+    border-collapse: collapse; /* Combina los bordes de las celdas */
+    width: 100%;
+}
+
+.table-product th, .table-product td {
+    border: 1px solid #000000; /* Añade un borde de 1 píxel sólido con color gris claro */
+    padding: 8px; /* Espaciado interno para las celdas */
+    text-align: center;
+    width: 17%;
+}
+
+/* Estilo opcional para resaltar el encabezado */
+.table-product th {
+    background-color: #8ba6c4; /* Color de fondo gris claro para los encabezados */
+}
+
+.table-product td{
+    background-color: #ffffff;
+}
+
+.input-n{
+    width: 40%;
+}
+
+.buttom-selec{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:  rgba(8, 8, 122, 0.733); /* color azul */
+    color: #fff; /* texto blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* transición suave al cambiar el color de fondo */
+  }
+  
+  .buttom-selec:hover {
+    background-color: #79a7e4; /* color azul más claro al pasar el mouse */
+  }
+
+  .btn-div{
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .logo{
+    width: 150px;
+    height: auto;
+  }
+
+  .menu-arriba{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8ba6c4;
+    border: 2px solid #12477c;
+    border-radius: 10px;
+  }
+
+  .menu-header {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .lista {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  .opcion {
+    text-decoration: none;
+    color: rgb(241, 241, 241);
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .opcion:hover {
+    text-decoration: none;
+    background-color: rgb(10, 10, 126); /* Color de fondo más oscuro al pasar el mouse */
+    color: #fff;
+  }
+
+.btn-estado {
+    /* Estilos comunes para ambos botones, puedes ajustarlos según tus necesidades */
+    color: #fff;
+}
+
+.btn-light {
+    background-color: #d3d3d3; /* Gris claro */
+}
+
+.btn-success {
+    background-color: #28a745; /* Verde */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Rojo */
+}
+  
