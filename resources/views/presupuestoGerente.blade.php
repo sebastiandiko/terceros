@@ -33,6 +33,7 @@
                     <th>Seleccionar</th>
                 </tr> 
             </thead>
+            <select name="" id=""></select>
             <tbody>
                 @foreach ($products as $pr)
                     <tr>
