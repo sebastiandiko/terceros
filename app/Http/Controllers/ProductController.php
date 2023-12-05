@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Models\Producto;
+use App\Models\Laboratorio;
 use Illuminate\Support\ViewErrorBag;
 
 class ProductController extends Controller
@@ -25,8 +26,16 @@ class ProductController extends Controller
     }
     
     public function obtenerProductos(){
+        $laboratorios = Laboratorio::all();
         $products = Producto::all();
-        return view('presupuesto')->with('products', $products);
+        return view('presupuesto', compact('products', 'laboratorios'));
+    }
+
+    public function getProductosPorLaboratorio($idLaboratorio)
+    {
+        $productos = Producto::where('IDlaboratorio', $idLaboratorio)->get();
+
+        return response()->json($productos);
     }
 
     public function obtenerProductoSGerente(){
@@ -35,7 +44,10 @@ class ProductController extends Controller
     }
 
     public function obtenerHistorial(){
-        $products = Producto::all();
+        $products = Producto::whereNotNull('cantidad')
+                         ->whereNotNull('cotizacion')
+                         ->get();
+
         return view('historial')->with('products', $products);
     }
 

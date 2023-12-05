@@ -21,6 +21,12 @@
 </header>
 
 <body class="product-body">
+    <select id="selectLaboratorio">
+        <option value="">Todos los laboratorios</option>
+        @foreach($laboratorios as $laboratorio)
+            <option value="{{ $laboratorio->id }}">{{ $laboratorio->nombre }}</option>
+        @endforeach
+    </select>
     <div class="content-table">    
         <table class="table-product" id="productos" style="width:100%;">
             <thead>
