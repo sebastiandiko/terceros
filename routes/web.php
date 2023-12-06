@@ -46,6 +46,8 @@ Route::get('dashboard/historial', [ProductController::class, 'obtenerHistorial']
 
 Route::get('dashboard/presupuestoGerente', [ProductController::class, 'obtenerProductosGerente'])->name('presupuestoGerente');
 
+Route::get('/productos/{idLaboratorio}', [ProductController::class, 'getProductosPorLaboratorio'])->name('productos.laboratorio');
+
 Route::put('/productos/aprobar/{id}', [ProductController::class, 'aprobar'])->name('productos.aprobar');
 
 Route::put('/productos/desaprobar/{id}', [ProductController::class, 'desaprobar'])->name('productos.desaprobar');
