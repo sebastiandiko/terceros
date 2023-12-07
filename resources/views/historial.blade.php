@@ -17,6 +17,7 @@
       <ul class="menu-header">
         <li class="lista"><a class="opcion" href="{{ route('dashboard') }}">Menu</a></li>
       </ul>
+    </nav>
 </header>
 
 <body class="product-body">

@@ -2,7 +2,7 @@
     background-color: rgb(230, 230, 230);
   }
   
-  .menu {
+.menu {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -10,30 +10,13 @@
     padding: 30px;
     background-color: #12477c;
     border-radius: 10px;
-  }
+}
   
-  .menu button {
-    width: 150px;
-    height: 50px;
-    margin: 10px;
-    background-color: #f1f1f1;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s;
-    border-radius: 10px;
-  }
-  
-  
-  .icono {
+.icono {
     width: 25px; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; /* Esto mantiene la relación de aspecto de la imagen */
-  }
+}
   
-  .menu button:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Estilos básicos del botón */
 .custom-button {
   display: block;
   margin-bottom: 10px;
@@ -47,7 +30,55 @@
   transition: background-color 0.3s ease; /* Transición de color de fondo */
 }
 
-/* Cambia el color de fondo cuando se pasa el cursor sobre el botón */
 .custom-button:hover {
   background-color: #c0c0c0; /* Oscurece ligeramente el fondo */
 }
+
+/* cotizacion */
+.menu-cotizacion {
+  position: fixed;
+  text-align: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  background-color: #2b5688;
+  border-radius: 10px;
+}
+
+.form-div {
+  margin-bottom: 15px;
+}
+
+.form-ctrl {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ADD8E6; /* Color azul claro */
+  border-radius: 5px;
+  background-color: #ffffff; /* Color azul pálido */
+  color: #333; /* Color de texto oscuro */
+}
+
+.btn-cotizar {
+  background-color: #c7ced1; /* Color azul grisáceo */
+  color: #000000;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%; 
+}
+
+.btn-cotizar:hover {
+  background-color: #4682B4; /* Cambia el color al pasar el ratón sobre el botón */
+}
+
+.titulo-cotizacion {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff; /* Color de texto oscuro */
+}
+  

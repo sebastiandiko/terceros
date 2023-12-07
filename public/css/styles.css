@@ -32,37 +32,18 @@
     background-color: #ffffff;
 }
 
-.input-n{
-    width: 40%;
-}
-
-.buttom-selec{
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color:  rgba(8, 8, 122, 0.733); /* color azul */
-    color: #fff; /* texto blanco */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* transición suave al cambiar el color de fondo */
-  }
-  
-  .buttom-selec:hover {
-    background-color: #79a7e4; /* color azul más claro al pasar el mouse */
-  }
-
-  .btn-div{
+.btn-div{
     text-align: right;
     margin-right: 10px;
     margin-top: 10px;
   }
 
-  .logo{
+.logo{
     width: 150px;
     height: auto;
   }
 
-  .menu-arriba{
+.menu-arriba{
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -72,19 +53,19 @@
     border-radius: 10px;
   }
 
-  .menu-header {
+.menu-header {
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
   }
   
-  .lista {
+.lista {
     display: inline-block;
     margin-left: 20px;
-  }
+}
   
-  .opcion {
+.opcion {
     text-decoration: none;
     color: rgb(241, 241, 241);
     font-weight: bold;
@@ -94,7 +75,7 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .opcion:hover {
+.opcion:hover {
     text-decoration: none;
     background-color: rgb(10, 10, 126); /* Color de fondo más oscuro al pasar el mouse */
     color: #fff;
@@ -116,4 +97,4 @@
 .btn-danger {
     background-color: #dc3545; /* Rojo */
 }
-  
+

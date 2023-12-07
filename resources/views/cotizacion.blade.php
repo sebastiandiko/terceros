@@ -1,15 +1,38 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleMenu.css') }}">
+    <title>Document</title>
+</head>
 
-<form action='/edit' method="POST" class="mi-formulario">
-    @csrf
-    <input type="hidden" value="{{ $pr['id'] }}" name="id">
-    <div class="form-group">
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cantidad" class="form-control" placeholder="Ingrese cantidad" required>
+<header class="menu-arriba">
+    <div>
+        <img class="logo" src="https://netsco.jufecsa.com.ar/app/img/Jufec_Logo.png" alt="">
     </div>
-    <div class="form-group">
-        <label for="cotizacion">Cotización:</label>
-        <input type="number" name="cotizacion" class="form-control" placeholder="Ingrese Cotización" required>
+    <nav>
+      <ul class="menu-header">
+        <li class="lista"><a class="opcion" href="{{ route('presupuesto') }}">Atrás</a></li>
+      </ul>
+    </nav>
+</header>
+
+<body class="body-vendedores">
+    <div class="menu-cotizacion">
+        <form action='/edit' method="POST">
+            @csrf
+            <div class="titulo-cotizacion">Armar Cotización</div>
+                <input type="hidden" value="{{ $pr['id'] }}" name="id">
+            <div class="form-div">
+                <input type="number" name="cantidad" class="form-ctrl" placeholder="Cantidad" required>
+            </div>
+            <div class="form-div">
+                <input type="number" name="cotizacion" class="form-ctrl" placeholder="Cotización" required>
+            </div>
+            <button type="submit" class="btn-cotizar">Guardar</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+</body>
+</html>
