@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Laboratorio;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\ViewErrorBag;
 
 class ProductController extends Controller
@@ -15,6 +16,7 @@ class ProductController extends Controller
         $product=Producto::find($req->id);
         $product->cantidad=$req->cantidad;
         $product->cotizacion=$req->cotizacion;
+        $product->estado=0;
         $product->save();
         return redirect('dashboard/presupuesto');
     }
@@ -63,7 +65,7 @@ class ProductController extends Controller
     public function desaprobar($id)
     {
         $producto = Producto::findOrFail($id);
-        $producto->estado = 0; // 0 para estado desaprobado
+        $producto->estado = 2; // 0 para estado desaprobado
         $producto->save();
 
         return redirect()->route('presupuestoGerente');

@@ -51,3 +51,4 @@ Route::get('/productos/{idLaboratorio}', [ProductController::class, 'getProducto
 Route::put('/productos/aprobar/{id}', [ProductController::class, 'aprobar'])->name('productos.aprobar');
 
 Route::put('/productos/desaprobar/{id}', [ProductController::class, 'desaprobar'])->name('productos.desaprobar');
+

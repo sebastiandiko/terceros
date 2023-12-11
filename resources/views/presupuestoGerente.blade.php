@@ -35,25 +35,27 @@
             </thead>
             <tbody>
                 @foreach ($products as $pr)
-                    <tr>
-                        <td>{{ $pr -> id }}</td>
-                        <td>{{ $pr -> descripcion }}</td>
-                        <td>{{ $pr -> stock }}</td>
-                        <td>{{ $pr -> cantidad }}</td>
-                        <td>{{ $pr -> cotizacion }}</td>
-                        <td>
-                            <form action="{{ route('productos.aprobar', ['id' => $pr->id]) }}" method="post">
-                                @csrf
-                                @method('put')
-                                <button type="submit" class="btn btn-estado {{ $pr->estado == 1 ? 'btn-success' : 'btn-light' }}">Aprobar</button>
-                            </form>
-                            <form action="{{ route('productos.desaprobar', ['id' => $pr->id]) }}" method="post">
-                                @csrf
-                                @method('put')
-                                <button type="submit" class="btn btn-estado {{ $pr->estado == 0 ? 'btn-danger' : 'btn-light' }}">Desaprobar</button>
-                            </form>
-                        </td>
-                    </tr>
+                    @if ($pr->cantidad !== null && $pr->cotizacion !== null)
+                        <tr>
+                            <td>{{ $pr -> id }}</td>
+                            <td>{{ $pr -> descripcion }}</td>
+                            <td>{{ $pr -> stock }}</td>
+                            <td>{{ $pr -> cantidad }}</td>
+                            <td>{{ $pr -> cotizacion }}</td>
+                            <td>
+                                <form action="{{ route('productos.aprobar', ['id' => $pr->id]) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <button type="submit" class="btn btn-estado {{ $pr->estado == 1 ? 'btn-success' : ($pr->estado == 0 ? 'btn-light' : 'btn-light') }}">Aprobar</button>
+                                </form>
+                                <form action="{{ route('productos.desaprobar', ['id' => $pr->id]) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <button type="submit" class="btn btn-estado {{ $pr->estado == 2 ? 'btn-danger' : ($pr->estado == 0 ? 'btn-light' : 'btn-light') }}">Desaprobar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endif
                     @endforeach
             </tbody>
         </table>
