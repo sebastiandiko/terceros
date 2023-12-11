@@ -41,7 +41,7 @@
                         <td>{{ $pr -> stock }}</td>
                         <td>{{ $pr -> cantidad }}</td>
                         <td>${{ $pr -> cotizacion }}</td>
-                        <td>{{ $pr->estado === null ? 'Pendiente' : ($pr->estado == 1 ? 'Aprobado' : 'Desaprobado') }}</td>
+                        <td>{{ $pr->estado === 0 ? 'Pendiente' : ($pr->estado == 1 ? 'Aprobado' : 'Desaprobado') }}</td>
                     </tr>
                     @endforeach
             </tbody>
