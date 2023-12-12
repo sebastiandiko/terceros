@@ -30,7 +30,6 @@
                     <th>Descripción</th>
                     <th>Stock disponible</th>
                     <th>Cantidad</th>
-
                 </tr> 
             </thead>
             <tbody>
