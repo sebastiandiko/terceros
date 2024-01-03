@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Laboratorio;
+use App\Models\Presupuesto;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\ViewErrorBag;
 
@@ -22,52 +23,53 @@ class ProductController extends Controller
     }
 
 
-    public function showEdit($id){
+public function showEdit($id){
         $products=Producto::find($id);
         return view('cotizacion', ['pr'=>$products]);
     }
+
+public function obtenerPresupuestos(){
+    $presupuestos = Presupuesto::all();
+    return view('presupuestosVendedor', ['presupuestos' => $presupuestos]);
+    }
     
-    public function obtenerProductos(){
+public function obtenerProductos(){
         $laboratorios = Laboratorio::all();
         $products = Producto::all();
         return view('presupuesto', compact('products', 'laboratorios'));
     }
 
-    public function getProductosPorLaboratorio($idLaboratorio)
+public function getProductosPorLaboratorio($idLaboratorio)
     {
         $productos = Producto::where('IDlaboratorio', $idLaboratorio)->get();
-
         return response()->json($productos);
     }
 
-    public function obtenerProductoSGerente(){
+public function obtenerProductoSGerente(){
         $products = Producto::all();
         return view('presupuestoGerente')->with('products', $products);
     }
 
-    public function obtenerHistorial(){
+public function obtenerHistorial(){
         $products = Producto::whereNotNull('cantidad')
                          ->whereNotNull('cotizacion')
                          ->get();
-
         return view('historial')->with('products', $products);
     }
 
-    public function aprobar($id)
+public function aprobar($id)
     {
         $product = Producto::find($id);
         $product->estado = 1;
         $product->save();
-
         return redirect()->route('presupuestoGerente');
     }
 
-    public function desaprobar($id)
+public function desaprobar($id)
     {
         $producto = Producto::findOrFail($id);
         $producto->estado = 2; // 0 para estado desaprobado
         $producto->save();
-
         return redirect()->route('presupuestoGerente');
     }
 } 

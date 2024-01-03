@@ -36,10 +36,12 @@ Auth::routes();
 
 Route::get('/home', [TipoController::class, 'type'])->name('home');
 
-Route::get('dashboard/presupuesto', [ProductController::class, 'obtenerProductos'])->name('presupuesto');
+Route::get('dashboard/presupuestosVendedores', [ProductController::class, 'obtenerPresupuestos'])->name('presupuesto');
+
+Route::get('dashboard/productos', [ProductController::class, 'obtenerPoductos'])->name('Productos');
 
 Route::get('dashboard/edit/{id}', [ProductController::class, 'showEdit'])->name('cotizacion');
-
+ 
 Route::post('/edit', [ProductController::class, 'update']);
 
 Route::get('dashboard/historial', [ProductController::class, 'obtenerHistorial'])->name('historial');

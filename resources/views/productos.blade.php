@@ -31,7 +31,7 @@
                     <th>Stock disponible</th>
                     <th>Cantidad</th>
                 </tr> 
-            </thead>
+            </thead> 
             <tbody>
                 @foreach ($products as $pr)
                     <tr>
