@@ -36,12 +36,16 @@ Auth::routes();
 
 Route::get('/home', [TipoController::class, 'type'])->name('home');
 
-Route::get('dashboard/presupuestosVendedores', [ProductController::class, 'obtenerPresupuestos'])->name('presupuesto');
+Route::get('dashboard/presupuestoForm', function() { return view('datosPresupuesto');})->name('presupuesto');
 
-Route::get('dashboard/productos', [ProductController::class, 'obtenerPoductos'])->name('Productos');
+Route::post('/crearPresupuesto', [ProductController::class, 'createPresupuesto'])->name('crearPresupuesto');
 
-Route::get('dashboard/edit/{id}', [ProductController::class, 'showEdit'])->name('cotizacion');
- 
+Route::get('/productos', [ProductController::class, 'obtenerProductos'])->name('productos');
+
+Route::get('dashboard/presupuestosVendedores', [ProductController::class, 'obtenerPresupuestos'])->name('pres');
+
+Route::get('edit/{idProducto}', [ProductController::class, 'showEdit'])->name('cotizacion');
+
 Route::post('/edit', [ProductController::class, 'update']);
 
 Route::get('dashboard/historial', [ProductController::class, 'obtenerHistorial'])->name('historial');
@@ -53,4 +57,3 @@ Route::get('/productos/{idLaboratorio}', [ProductController::class, 'getProducto
 Route::put('/productos/aprobar/{id}', [ProductController::class, 'aprobar'])->name('productos.aprobar');
 
 Route::put('/productos/desaprobar/{id}', [ProductController::class, 'desaprobar'])->name('productos.desaprobar');
-

@@ -21,14 +21,14 @@
 
 <body class="body-vendedores">
     <div class="menu-cotizacion">
-        <form action='/edit' method="POST">
+        <form action='/crearPresupuesto' method="POST">
             @csrf
-            <div class="titulo-cotizacion">Datos Cotización</div>
+            <div class="titulo-cotizacion">Datos de presupuesto</div>
             <div class="form-div">
-                <input type="number" name="cantidad" class="form-ctrl" placeholder="Cantidad" required>
+                <input type="text" name="nombreVendedor" class="form-ctrl" placeholder="Nombre del vendedor" required>
             </div>
             <div class="form-div">
-                <input type="number" name="cotizacion" class="form-ctrl" placeholder="Cotización" required>
+                <input type="number" name="numCliente" class="form-ctrl" placeholder="Número de cliente" required>
             </div>
             <button type="submit" class="btn-cotizar">Guardar</button>
         </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Laboratorio;
@@ -12,31 +13,37 @@ use Illuminate\Support\ViewErrorBag;
 
 class ProductController extends Controller
 {
-    function update(Request $req)
+    function createPresupuesto(Request $req)
     {
-        $product=Producto::find($req->id);
-        $product->cantidad=$req->cantidad;
-        $product->cotizacion=$req->cotizacion;
-        $product->estado=0;
-        $product->save();
-        return redirect('dashboard/presupuesto');
+        $presupuesto = new Presupuesto;
+        $presupuesto->fecha = Carbon::now();
+        $presupuesto->numCliente = $req->input('numCliente');
+        $presupuesto->nombreVendedor = $req->input('nombreVendedor');
+        $presupuesto->save();
+        return redirect('productos')->with('presupuesto', $presupuesto);
     }
 
+public function obtenerProductos(){
+        $products = Producto::all();
+        return view('productos')->with('products', $products);
+    }
 
 public function showEdit($id){
         $products=Producto::find($id);
         return view('cotizacion', ['pr'=>$products]);
     }
 
+public function update(Request $req){
+        $product=Producto::find($req->id);
+        $product->cantidad=$req->cantidad;
+        $product->cotizacion=$req->cotizacion;
+        $product->save();
+        return redirect('productos'); 
+    }
+
 public function obtenerPresupuestos(){
     $presupuestos = Presupuesto::all();
     return view('presupuestosVendedor', ['presupuestos' => $presupuestos]);
-    }
-    
-public function obtenerProductos(){
-        $laboratorios = Laboratorio::all();
-        $products = Producto::all();
-        return view('presupuesto', compact('products', 'laboratorios'));
     }
 
 public function getProductosPorLaboratorio($idLaboratorio)

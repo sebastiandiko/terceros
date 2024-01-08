@@ -35,10 +35,10 @@
             <tbody>
                 @foreach ($products as $pr)
                     <tr>
-                        <td>{{ $pr -> id }}</td>
+                        <td>{{ $pr -> idProducto }}</td>
                         <td>{{ $pr -> descripcion }}</td>
                         <td>{{ $pr -> stock }}</td>
-                        <td><a href={{"edit/".$pr['id']}} class="btn btn-info">Cotizar</a></td>
+                        <td><a href={{"edit/".$pr['idProducto']}} class="btn btn-info">Cotizar</a></td>
                     @endforeach
             </tbody>
         </table>
