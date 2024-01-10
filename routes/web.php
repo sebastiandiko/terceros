@@ -44,9 +44,9 @@ Route::get('/productos', [ProductController::class, 'obtenerProductos'])->name('
 
 Route::get('dashboard/presupuestosVendedores', [ProductController::class, 'obtenerPresupuestos'])->name('pres');
 
-Route::get('edit/{idProducto}', [ProductController::class, 'showEdit'])->name('cotizacion');
+Route::get('edit/{idProducto}/{idPresupuesto}', [ProductController::class, 'showEdit'])->name('cotizacion');
 
-Route::post('/edit', [ProductController::class, 'update']);
+Route::post('/update', [ProductController::class, 'update'])->name('update');
 
 Route::get('dashboard/historial', [ProductController::class, 'obtenerHistorial'])->name('historial');
 

@@ -21,9 +21,10 @@
 
 <body class="body-vendedores">
     <div class="menu-cotizacion">
-        <form action='/edit' method="POST">
+        <form action='/update' method="POST">
             @csrf
             <div class="titulo-cotizacion">Datos Cotización</div>
+            <input type="hidden" name="id" value="{{ $pr }}">
             <div class="form-div">
                 <input type="number" name="cantidad" class="form-ctrl" placeholder="Cantidad" required>
             </div>

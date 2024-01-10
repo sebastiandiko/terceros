@@ -12,8 +12,6 @@ class Producto extends Model
     protected $fillable = [
         'descripcion',
         'stock',
-        'cantidad',
-        'cotizacion',
-        'seleccion',
+        'idLaboratorio',
     ];
 }

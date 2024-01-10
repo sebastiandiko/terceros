@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css">
     <title>Document</title>
 </head>
-
+@php
+    $idPresupuesto = session('presupuesto');
+@endphp
 <header class="menu-arriba">
     <div>
         <img class="logo" src="https://netsco.jufecsa.com.ar/app/img/Jufec_Logo.png" alt="">
@@ -23,6 +25,7 @@
 <body class="product-body">
 
     <div class="content-table">    
+        <p>ID del presupuesto: {{ $idPresupuesto }}</p>
         <table class="table-product" id="productos" style="width:100%;">
             <thead>
                 <tr>
@@ -38,7 +41,7 @@
                         <td>{{ $pr -> idProducto }}</td>
                         <td>{{ $pr -> descripcion }}</td>
                         <td>{{ $pr -> stock }}</td>
-                        <td><a href={{"edit/".$pr['idProducto']}} class="btn btn-info">Cotizar</a></td>
+                        <td><a href={{route ('cotizacion', ['idProducto' => $pr['idProducto'], 'idPresupuesto' => $idPresupuesto]) }} class="btn btn-info">Cotizar</a></td>
                     @endforeach
             </tbody>
         </table>
@@ -48,4 +51,3 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
-
