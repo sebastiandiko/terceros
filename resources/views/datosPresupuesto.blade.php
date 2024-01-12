@@ -14,7 +14,7 @@
     </div>
     <nav>
       <ul class="menu-header">
-        <li class="lista"><a class="opcion" href="{{ route('presupuesto') }}">Atrás</a></li>
+      <li class="lista"><a class="opcion" href="{{ route('dashboard') }}">Menú</a></li>
       </ul>
     </nav>
 </header>

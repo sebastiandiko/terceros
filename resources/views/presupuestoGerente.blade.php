@@ -25,37 +25,35 @@
         <table class="table-product" id="productos" style="width:100%;">
             <thead>
                 <tr>
-                    <th>Código de barra</th>
-                    <th>Descripción</th>
-                    <th>Stock disponible</th>
-                    <th>Cantidad</th>
-                    <th>Cotización</th>
-                    <th>Seleccionar</th>
+                <th>N° presupuesto</th>
+                    <th>Vendedor</th>
+                    <th>N° cliente</th>
+                    <th>Fecha</th>
+                    <th>Detalle</th>
+                    <th>Estado</th>
                 </tr> 
             </thead>
             <tbody>
-                @foreach ($products as $pr)
-                    @if ($pr->cantidad !== null && $pr->cotizacion !== null)
+                @foreach ($presupuesto as $pre)
                         <tr>
-                            <td>{{ $pr -> id }}</td>
-                            <td>{{ $pr -> descripcion }}</td>
-                            <td>{{ $pr -> stock }}</td>
-                            <td>{{ $pr -> cantidad }}</td>
-                            <td>{{ $pr -> cotizacion }}</td>
+                            <td>{{ $pre -> idPresupuesto }}</td>
+                            <td>{{ $pre -> nombreVendedor }}</td>
+                            <td>{{ $pre -> numCliente }}</td>
+                            <td>{{ $pre -> fecha }}</td>
+                            <td><a href={{ route('historialProductos', [ $pre['idPresupuesto'] ] )}} class="btn btn-info">Detalle</a></td>
                             <td>
-                                <form action="{{ route('productos.aprobar', ['id' => $pr->id]) }}" method="post">
+                                <form action="{{ route('productos.aprobar', ['id' => $pre->idPresupuesto]) }}" method="post">
                                     @csrf
                                     @method('put')
-                                    <button type="submit" class="btn btn-estado {{ $pr->estado == 1 ? 'btn-success' : ($pr->estado == 0 ? 'btn-light' : 'btn-light') }}">Aprobar</button>
+                                    <button type="submit" class="btn btn-estado {{ $pre->estado == 1 ? 'btn-success' : ($pre->estado == 0 ? 'btn-light' : 'btn-light') }}">Aprobar</button>
                                 </form>
-                                <form action="{{ route('productos.desaprobar', ['id' => $pr->id]) }}" method="post">
+                                <form action="{{ route('productos.desaprobar', ['idPresupuesto' => $pre->idPresupuesto]) }}" method="post">
                                     @csrf
                                     @method('put')
-                                    <button type="submit" class="btn btn-estado {{ $pr->estado == 2 ? 'btn-danger' : ($pr->estado == 0 ? 'btn-light' : 'btn-light') }}">Desaprobar</button>
+                                    <button type="submit" class="btn btn-estado {{ $pre->estado == 2 ? 'btn-danger' : ($pre->estado == 0 ? 'btn-light' : 'btn-light') }}">Desaprobar</button>
                                 </form>
                             </td>
                         </tr>
-                        @endif
                     @endforeach
             </tbody>
         </table>

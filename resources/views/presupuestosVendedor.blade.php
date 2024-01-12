@@ -37,7 +37,7 @@
                         <td>{{ $pre -> idPresupuesto }}</td>
                         <td>{{ $pre -> nombreVendedor }}</td>
                         <td>{{ $pre -> numCliente }}</td>
-                        <td><a href={{"edit/".$pr['id']}} class="btn btn-info">Cotizar</a></td>
+                        <td><a href={{"edit/".$pre['id']}} class="btn btn-info">Cotizar</a></td>
                     @endforeach
             </tbody>
         </table>

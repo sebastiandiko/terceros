@@ -50,10 +50,12 @@ Route::post('/update', [ProductController::class, 'update'])->name('update');
 
 Route::get('dashboard/historial', [ProductController::class, 'obtenerHistorial'])->name('historial');
 
-Route::get('dashboard/presupuestoGerente', [ProductController::class, 'obtenerProductosGerente'])->name('presupuestoGerente');
+Route::get('/historialProductos/{idPresupuesto}',  [ProductController::class, 'obtenerHistorialProductos'])->name('historialProductos');
+
+Route::get('dashboard/presupuestoGerente', [ProductController::class, 'obtenerPresupuestoGerente'])->name('presupuestoGerente');
 
 Route::get('/productos/{idLaboratorio}', [ProductController::class, 'getProductosPorLaboratorio'])->name('productos.laboratorio');
 
 Route::put('/productos/aprobar/{id}', [ProductController::class, 'aprobar'])->name('productos.aprobar');
 
-Route::put('/productos/desaprobar/{id}', [ProductController::class, 'desaprobar'])->name('productos.desaprobar');
+Route::put('/productos/desaprobar/{idPresupuesto}', [ProductController::class, 'desaprobar'])->name('productos.desaprobar'); 

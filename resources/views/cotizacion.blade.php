@@ -14,7 +14,7 @@
     </div>
     <nav>
       <ul class="menu-header">
-        <li class="lista"><a class="opcion" href="{{ route('presupuesto') }}">Atrás</a></li>
+      <li onclick="goBack()" class="lista opcion">Atrás</a></li>
       </ul>
     </nav>
 </header>
@@ -36,3 +36,5 @@
     </div>
 </body>
 </html>
+
+<script> function goBack() { history.back(); } </script>

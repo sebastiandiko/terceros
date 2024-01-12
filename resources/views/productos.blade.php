@@ -25,7 +25,6 @@
 <body class="product-body">
 
     <div class="content-table">    
-        <p>ID del presupuesto: {{ $idPresupuesto }}</p>
         <table class="table-product" id="productos" style="width:100%;">
             <thead>
                 <tr>
@@ -36,12 +35,12 @@
                 </tr> 
             </thead> 
             <tbody>
-                @foreach ($products as $pr)
+                @foreach ($products as $pre_pro)
                     <tr>
-                        <td>{{ $pr -> idProducto }}</td>
-                        <td>{{ $pr -> descripcion }}</td>
-                        <td>{{ $pr -> stock }}</td>
-                        <td><a href={{route ('cotizacion', ['idProducto' => $pr['idProducto'], 'idPresupuesto' => $idPresupuesto]) }} class="btn btn-info">Cotizar</a></td>
+                        <td>{{ $pre_pro -> idProducto }}</td>
+                        <td>{{ $pre_pro -> descripcion }}</td>
+                        <td>{{ $pre_pro -> stock }}</td>
+                        <td><a href={{route ('cotizacion', ['idProducto' => $pre_pro['idProducto'], 'idPresupuesto' => $idPresupuesto]) }} class="btn btn-info">Cotizar</a></td>
                     @endforeach
             </tbody>
         </table>

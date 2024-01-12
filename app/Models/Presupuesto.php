@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Presupuesto extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'idPresupuesto'; 
+
     protected $fillable = [
-        'idPresupuesto',
         'fecha',
         'numCliente',
         'nombreVendedor'

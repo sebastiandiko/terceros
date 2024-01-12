@@ -21,14 +21,15 @@ function createPresupuesto(Request $req)
         $presupuesto->numCliente = $req->input('numCliente');
         $presupuesto->nombreVendedor = $req->input('nombreVendedor');
         $presupuesto->save();
-        return redirect('productos')->with('presupuesto', $presupuesto->id);
+        return redirect('productos')->with('presupuesto', $presupuesto->idPresupuesto);
     }
 
 public function obtenerProductos(){
-        $products = Producto::all();
-        return view('productos')->with('products', $products);
-    }
-
+        $productos = Producto::all();
+        return view('productos')->with([
+            'products' => $productos,
+    ]);
+}
 public function showEdit($idProducto, $idPresupuesto){
         $pre_pro = new Presupuesto_Producto;
         $pre_pro->idPresupuesto = $idPresupuesto;
@@ -42,7 +43,6 @@ public function update(Request $req){
         $pre_pro = Presupuesto_Producto::find($req->id);
         $pre_pro->cantidad = $req->cantidad;
         $pre_pro->cotizacion = $req->cotizacion;
-        $pre_pro->estado = 0;
         $pre_pro->save();
         return redirect('productos')->with('presupuesto', $pre_pro->idPresupuesto);
     }
@@ -58,31 +58,34 @@ public function getProductosPorLaboratorio($idLaboratorio)
         return response()->json($productos);
     }
 
-public function obtenerProductoSGerente(){
-        $products = Producto::all();
-        return view('presupuestoGerente')->with('products', $products);
+public function obtenerPresupuestoGerente(){
+    $presupuesto = Presupuesto::get();
+    return view('presupuestoGerente')->with('presupuesto', $presupuesto);
     }
 
 public function obtenerHistorial(){
-        $products = Producto::whereNotNull('cantidad')
-                         ->whereNotNull('cotizacion')
-                         ->get();
-        return view('historial')->with('products', $products);
+    $presupuesto = Presupuesto::get();
+    return view('historial')->with('presupuesto', $presupuesto);
     }
+
+public function obtenerHistorialProductos($idPresupuesto){
+    $products = Presupuesto_Producto::with('producto')->get();
+    return view('historialProductos', compact('products', 'idPresupuesto'));
+}
 
 public function aprobar($id)
     {
-        $product = Producto::find($id);
-        $product->estado = 1;
-        $product->save();
-        return redirect()->route('presupuestoGerente');
+        $presupuesto = Presupuesto::find($id);
+        $presupuesto->estado = 1;
+        $presupuesto->save();
+        return redirect()->route('presupuestoGerente'); 
     }
 
 public function desaprobar($id)
     {
-        $producto = Producto::findOrFail($id);
-        $producto->estado = 2; // 0 para estado desaprobado
-        $producto->save();
-        return redirect()->route('presupuestoGerente');
+        $presupuesto = Presupuesto::find($id);
+        $presupuesto->estado = 2;
+        $presupuesto->save();
+        return redirect()->route('presupuestoGerente'); 
     }
 } 
