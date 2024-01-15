@@ -41,7 +41,7 @@
                         <td>{{ $pre -> producto -> descripcion }}</td>
                         <td>{{ $pre -> producto -> stock }}</td>
                         <td>{{ $pre -> cantidad }}</td>
-                        <td>{{ $pre -> cotizacion }}</td>
+                        <td>$ {{ $pre -> cotizacion }}</td>
                     @endif
                     @endforeach
             </tbody>

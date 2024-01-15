@@ -24,7 +24,8 @@
         <form action='/update' method="POST">
             @csrf
             <div class="titulo-cotizacion">Datos Cotización</div>
-            <input type="hidden" name="id" value="{{ $pr }}">
+            <input type="hidden" name="idProducto" value="{{ $idProducto }}">
+            <input type="hidden" name="idPresupuesto" value="{{ $idPresupuesto }}">
             <div class="form-div">
                 <input type="number" name="cantidad" class="form-ctrl" placeholder="Cantidad" required>
             </div>

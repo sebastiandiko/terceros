@@ -31,16 +31,13 @@ public function obtenerProductos(){
     ]);
 }
 public function showEdit($idProducto, $idPresupuesto){
-        $pre_pro = new Presupuesto_Producto;
-        $pre_pro->idPresupuesto = $idPresupuesto;
-        $pre_pro->idProducto = $idProducto;
-        $pre_pro->save();
-        $idpre_pro = $pre_pro->id;
-        return view('cotizacion', ['pr'=>$idpre_pro]);
+        return view('cotizacion', compact('idProducto', 'idPresupuesto'));
     }
 
 public function update(Request $req){
-        $pre_pro = Presupuesto_Producto::find($req->id);
+        $pre_pro = new Presupuesto_Producto;
+        $pre_pro->idProducto = $req->idProducto;
+        $pre_pro->idPresupuesto = $req->idPresupuesto;
         $pre_pro->cantidad = $req->cantidad;
         $pre_pro->cotizacion = $req->cotizacion;
         $pre_pro->save();
