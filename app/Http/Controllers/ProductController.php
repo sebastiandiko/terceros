@@ -30,6 +30,7 @@ public function obtenerProductos(){
             'products' => $productos,
     ]);
 }
+
 public function showEdit($idProducto, $idPresupuesto){
         return view('cotizacion', compact('idProducto', 'idPresupuesto'));
     }
@@ -41,6 +42,7 @@ public function update(Request $req){
         $pre_pro->cantidad = $req->cantidad;
         $pre_pro->cotizacion = $req->cotizacion;
         $pre_pro->save();
+        session()->put($pre_pro->idPresupuesto, $pre_pro->idProducto);
         return redirect('productos')->with('presupuesto', $pre_pro->idPresupuesto);
     }
 
@@ -85,4 +87,4 @@ public function desaprobar($id)
         $presupuesto->save();
         return redirect()->route('presupuestoGerente'); 
     }
-} 
+}

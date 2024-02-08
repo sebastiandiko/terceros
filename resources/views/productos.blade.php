@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 @php
-    $idPresupuesto = session('presupuesto');
+    $idPresupuesto = session('presupuesto')
 @endphp
 <header class="menu-arriba">
     <div>
@@ -23,7 +23,6 @@
 </header>
 
 <body class="product-body">
-
     <div class="content-table">    
         <table class="table-product" id="productos" style="width:100%;">
             <thead>
@@ -33,20 +32,29 @@
                     <th>Stock disponible</th>
                     <th>Cantidad</th>
                 </tr> 
-            </thead> 
+            </thead>  
             <tbody>
                 @foreach ($products as $pre_pro)
-                    <tr>
-                        <td>{{ $pre_pro -> idProducto }}</td>
-                        <td>{{ $pre_pro -> descripcion }}</td>
-                        <td>{{ $pre_pro -> stock }}</td>
-                        <td><a href={{route ('cotizacion', ['idProducto' => $pre_pro['idProducto'], 'idPresupuesto' => $idPresupuesto]) }} class="btn btn-info">Cotizar</a></td>
-                    @endforeach
+                <tr >
+                    <td>{{ $pre_pro -> idProducto }}</td>
+                    <td>{{ $pre_pro -> descripcion }}</td>
+                    <td>{{ $pre_pro -> stock }}</td>
+                    <td><a href={{route ('cotizacion', ['idProducto' => $pre_pro['idProducto'], 'idPresupuesto' => $idPresupuesto]) }} class="btn btn-info">Cotizar</a></td>
+                </tr>
+                @endforeach
             </tbody>
         </table>
-    </div>
+    </div> 
 </html>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#productos').DataTable({
+            "lengthChange": false,
+    });
+
+        });
+    </script>
