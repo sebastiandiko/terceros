@@ -12,8 +12,12 @@ use App\Models\Presupuesto_Producto;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\ViewErrorBag;
 
+//Este controlador contiene las funciones necesarias para el funcionamiento del sw una vez que el usuario se loguea
 class ProductController extends Controller
 {
+
+//Se crea un nuevo objeto de tipo Presupuesto para almacenar los datos que se obtienen mediante el ingreso del usuario
+//(nombre de vendedor y numero de cliente) y luego envía el id de ese presupuesto a la vista de cotización
 function createPresupuesto(Request $req)
     {
         $presupuesto = new Presupuesto;
@@ -24,6 +28,7 @@ function createPresupuesto(Request $req)
         return redirect('productos')->with('presupuesto', $presupuesto->idPresupuesto);
     }
 
+//se realiza  una consulta para obtener todos los productos y enviar esos datos a la vista "productos" y así poder mostrarlos
 public function obtenerProductos(){
         $productos = Producto::all();
         return view('productos')->with([
@@ -31,10 +36,12 @@ public function obtenerProductos(){
     ]);
 }
 
+//Recibe por parámetro ambos IDs y los manda a la vista cotización
 public function showEdit($idProducto, $idPresupuesto){
         return view('cotizacion', compact('idProducto', 'idPresupuesto'));
     }
 
+//se crea un objeto Presupuesto_Producto para almacenar y relacionar el producto cotizado con el presupuesto que se está armando
 public function update(Request $req){
         $pre_pro = new Presupuesto_Producto;
         $pre_pro->idProducto = $req->idProducto;
@@ -46,17 +53,19 @@ public function update(Request $req){
         return redirect('productos')->with('presupuesto', $pre_pro->idPresupuesto);
     }
 
+//Realiza una consulta para obtener la informacón de todos los presupuestos y lo envía a la vista presupuestosVendedor
 public function obtenerPresupuestos(){
     $presupuestos = Presupuesto::all();
     return view('presupuestosVendedor', ['presupuestos' => $presupuestos]);
     }
 
-public function getProductosPorLaboratorio($idLaboratorio)
-    {
+
+public function getProductosPorLaboratorio($idLaboratorio){
         $productos = Producto::where('IDlaboratorio', $idLaboratorio)->get();
         return response()->json($productos);
-    }
+}
 
+//Realiza una consulta para obtener la informacón de todos los presupuestos y lo envía a la vista presupuestoGerente
 public function obtenerPresupuestoGerente(){
     $presupuesto = Presupuesto::get();
     return view('presupuestoGerente')->with('presupuesto', $presupuesto);
